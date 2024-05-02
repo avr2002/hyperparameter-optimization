@@ -20,7 +20,7 @@
 
 - **Hyperparameter Response Surface**
   - Find the hyperparameters that minimize (or maximize) a performance metric 
-  - $$Hyperparams = min(performance metric)$$
+  - $$Hyperparams = min(\text{performance metric})$$
 
 ![response-surface](./assets/response-surface.png)
 
