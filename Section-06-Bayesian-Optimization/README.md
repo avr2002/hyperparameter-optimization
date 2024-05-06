@@ -103,7 +103,7 @@ the next query point.*
 
 - $\text{Joint Probability: } P(A, B)$, Joint Probability is symmetric: $P(B, A) = P(A, B)$ 
 - $\text{Marginal Probability: }P(A) = \sum{P(A, B)}$
-- $\text{Conditional Probability: }P(A|B) = \frac{P(A, B)}{P(B)} = \frac{\text{Joint Prob of A \& B}}{\text{Prior Probability of B}}$
+- $\text{Conditional Probability: }P(A|B) = \frac{P(A, B)}{P(B)} = \frac{\text{Joint Prob of A and B}}{\text{Prior Probability of B}}$
 
 - **Prior probability** is the unconditional probability assigned to an event before any relevant information is taken into account.
 
