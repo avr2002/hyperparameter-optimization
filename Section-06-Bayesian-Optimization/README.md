@@ -60,9 +60,9 @@ $$x^{*} = \underset{x \in \chi}{\mathrm{arg max}}\, f(x)$$
 
 1. In Bayesian optimization we treat $f$ as a random function and place a **prior** over it. *(the prior is a function that captures the belief-distribution, behaviour of f)*
 
-2. Then, we evaluate f at certain points
+2. Then, we evaluate $f$ at certain points
 
-3. With the new data, the prior (f original belief) is updated to a new the **posterior distribution**
+3. With the new data, the prior ($f$ original belief) is updated to a new the **posterior distribution**
 
 4. The posterior distribution is used to construct an **acquisition function** *to determine
 the next query point.*
@@ -114,30 +114,34 @@ the next query point.*
 
 ![alt text](./assets/probability.png)
 
+
+>*In Bayesian Inference what we do is, we reallocate the probability based on data. First we hypothesize a range of possible distributions or a distribution for a model, then we gather some evidence and in the light of that evidence, we adjust that distribution.*
+
 * **
 
 ### Bayes' Rule:
-
-$P(B, A) = P(A, B)$ 
-
-$P(B|A) = \frac{P(B, A)}{P(A)} \implies P(B, A) = P(B|A) \times P(A)$
-
-
 
 
 ![alt text](./assets/bayes-rule.png)
 
 
+$P(B, A) = P(A, B)$ 
+
+$P(B|A) = \frac{P(B, A)}{P(A)} \implies P(B, A) = P(B|A) \times P(A) = P(A, B)$
+
+
 **Bayes' Rule:** 
 
-$$P(A|B) = \frac{P(A, B)}{P(B)} = \frac{P(B|A) \times P(A)}{P(B)} = \frac{P(B|A) \times P(A)}{\sum{(P(B|A) \times P(A))}}$$
+$$P(A|B) = \frac{P(A, B)}{P(B)} = \frac{P(B|A) \times P(A)}{P(B)}$$
+
+$$= \frac{P(B|A) \times P(A)}{\sum{P(A, B)}} = \frac{P(B|A) \times P(A)}{\sum{(P(B|A) \times P(A))}}$$
 
 - A and B are events, like breed and dysplasia.
-- $P(A|B)$ is the posterior (conditional) probability of A taking place given the new evidence B.
-- $P(B|A)$ is also a conditional probability, of B taking place given A.
-- $P(A)$ and $P(B)$ are the marginal probability of A and B taking place independently.
+- **$P(A|B)$ is the posterior (conditional) probability of A taking place given the new evidence B.**
+- **$P(B|A)$ is also a conditional probability, of B taking place given A.**
+- **$P(A)$ and $P(B)$ are the marginal probability of A and B taking place independently.**
 
-**Bayes' rule gets us from the prior $P(A)$, to the posterior (conditional) distribution $P(A|B)$, when focusing on a specific value of B.**
+>>**Bayes' rule gets us from the prior $P(A)$, to the posterior (conditional) distribution $P(A|B)$, when focusing on a specific value of B.**
 
 
 $$\text{Posterior} \propto \text{Likelihood} \times \text{Prior}$$
@@ -147,7 +151,7 @@ $$P(A|B) \propto P(B|A) \times P(A)$$
 
 ### Bayes' Rule Value:
 
-- **Key application of Bayes' Rule when A is data and B is parameters.**
+- **Key application of Bayes' Rule is when A is data and B is parameters.**
 
 - **A model specifies $P(data|parameters)$ and the prior $P(parameters)$**
 
@@ -162,10 +166,24 @@ $$P(A|B) \propto P(B|A) \times P(A)$$
 ![alt text](./assets/response-surface-2.png)
 
 - Let $w$ be $f(x)$ (the response-surface) & $D$ be the avaialable data.
-- $w$ is unknown, so we treat is as a random function and place a **prior** over it $\rightarrow$ $P(w)$
+
+- $w$ is unknown, so we treat is as a random function and place a **prior** over it $\rightarrow$ $P(w)$.
+  - *This is where we hypothesize the distribution of $f(x)$ or $w$ without knowing it and this is going to be $P(w) \rightarrow prior$*
+
 - $P(w)$ captures our beliefs about the possible values of $w$.
+  
+  - *Our prior can be correct or not, but it doesn't matter because we're sequantially going to gather data points($D$) where we can measure $w/f(x)$ and then with this data point we're going to infer posterior of hyperparams given the data utilizing the Baye's Rule.*
+
 - **Given $D$ and the likelihood model $P(D|w)$, we can infer the posterior $P(w|D)$ using Bayes' rule.**
+
+* **
+
+$$P(w|D) = \frac{P(D|w) \times P(w)}{P(D)}$$
+
+*So formally, we want to estimate the posterior of $f(x)$ given the data utilizing Bayes' Rule, where we hypothesize $P(w)$, or $P(f(x))$, and then we gather some data based on $f(x)$. And here, when I say based on $f(x)$, we're going to examine f at different values of the hyperparameters. The posterior, $P(w|D)$, represents our updated belief of $w$, or our updated belief of the objective function, after contemplating the function at certain hyperparameter values, that is, after contemplating the evidence. And once we have the posterior distribution, we can construct an acquisition function to determine which point we need to query next. And by which point I mean which hyperparameters.*
+
 
 ![alt text](./assets/hyperparam-opt.png)
 
-**$\rightarrow$  `./assets/05-SMBO.pdf` for more details**
+
+**$\rightarrow$  `./assets/05-SMBO.pdf` for more details & illustrations.**
