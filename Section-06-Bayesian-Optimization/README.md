@@ -186,4 +186,14 @@ $$P(w|D) = \frac{P(D|w) \times P(w)}{P(D)}$$
 ![alt text](./assets/hyperparam-opt.png)
 
 
-**$\rightarrow$  `./assets/05-SMBO.pdf` for more details & illustrations.**
+- **$\rightarrow$  `./assets/05-SMBO.pdf` for more details & illustrations.**
+
+- **$\rightarrow$  `./assets/06-Gaussian-Distribution.pdf` for more details on Gaussian Distribution.**
+  
+- **$\rightarrow$  `./assets/07-Multivariate-Gaussian-Distribution.pdf` for more details on Multivariate Gaussian Distribution.**
+
+- **$\rightarrow$  `./assets/08-Gaussian-Process.pdf` for more details on Gaussian Processes.**
+
+- **$\rightarrow$  `./assets/09-Kernels.pdf` for more details on Kernels.**
+
+- **$\rightarrow$  `./assets/10-Acquisition-Functions.pdf` for more details on Acuquisition Functions.**
